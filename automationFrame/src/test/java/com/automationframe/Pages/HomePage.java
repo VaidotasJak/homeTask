@@ -18,8 +18,7 @@ public class HomePage extends BasePage {
     String baseURL = "http://www.pigu.lt/";
  
     //*********Web Elements*********
-    By signInButtonBy = By.xpath("//a[@href='u/login']");
- 
+    By signInButtonBy 		= By.xpath("//a[@href='u/login']");
  
     //*********Page Methods*********
     //Go to Homepage
