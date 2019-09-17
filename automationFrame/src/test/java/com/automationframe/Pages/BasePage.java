@@ -1,5 +1,7 @@
 package com.automationframe.Pages;
 
+import java.util.Random;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
@@ -54,6 +56,17 @@ public class BasePage {
 	    public void assertEquals (By elementBy, String expectedText) {
 	        waitVisibility(elementBy);
 	        Assertions.assertEquals(readText(elementBy), expectedText);
-	 
+	    }
+	    
+	  //Write Text + radom Int
+	    public void writeTextPlusRandomInt (By elementBy, String text) {
+	        waitVisibility(elementBy);
+	        driver.findElement(elementBy).sendKeys(text + getRandomInt(100, 100000));
+	    }
+	    
+	  //Write Random Int 
+	    public int getRandomInt (int min, int max) {
+	    	Random r = new Random();
+			return r.nextInt((max - min) + 1) + min;
 	    }
 }

@@ -49,6 +49,20 @@ public class Scripts extends BaseTest {
                 .clickRegister()
         		.findForm();
     }
+    
+    @Test 
+    public void tc04 () {
+        //*************PAGE INSTANTIATIONS*************
+        HomePage homePage = new HomePage(driver);
+ 
+        //*************PAGE METHODS********************
+        homePage.goToPiguLt()
+                .goToLoginPage()
+                .clickRegister()
+        		.findForm()
+        		.fillInRegistrationForm("User", "Pass");
+        		
+    }
 
 
 }

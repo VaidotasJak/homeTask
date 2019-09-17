@@ -14,6 +14,12 @@ public class LoginPage extends BasePage{
     //*********Web Elements*********
     By usernameBy 				= By.xpath("(//input[@name='email'])[1]");
     By passwordBy 				= By.xpath("(//input[@name='password'])[1]");
+    //Registration From
+    By usernameForm 			= By.xpath("(//input[@name='email'])[2]");
+    By passwordForm				= By.xpath("(//input[@name='password'])[2]");
+    By confirmPasswordFormBy	= By.xpath("(//input[@name='passconf'])[2]");
+    By registerButtonForm		= By.name("register");
+    
     By loginButtonBy 			= By.name("login");
     By errorMessageUsernameBy   = By.xpath("//*[@name='email']/following-sibling::div");
     By errorMessagePasswordBy   = By.xpath("//*[@id='passwordCont']/following-sibling::div");
@@ -55,4 +61,19 @@ public class LoginPage extends BasePage{
     	find(registerForm);
         return this;
     }
+    
+    //Fill in form with random values
+    public LoginPage fillInRegistrationForm (String username, String password){
+        //Enter Username(Email)
+    	writeTextPlusRandomInt(usernameForm, username);
+        //Enter Password
+    	writeTextPlusRandomInt(passwordForm, username);
+        //Confirm Password
+    	writeTextPlusRandomInt(confirmPasswordFormBy, password);
+        //Click Login Button
+        click(registerButtonForm);
+        return this;
+    }
+    
+    
 }
