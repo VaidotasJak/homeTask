@@ -2,7 +2,6 @@ package com.automationframe.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage{
 	 
@@ -24,8 +23,9 @@ public class LoginPage extends BasePage{
     By errorMessageUsernameBy   = By.xpath("//*[@name='email']/following-sibling::div");
     By errorMessagePasswordBy   = By.xpath("//*[@id='passwordCont']/following-sibling::div");
     By registerButtonBy			= By.xpath("//a[contains(@href,'account#register')]");
-    By registerForm				= By.xpath("(//form[@class='form-default login-form'])[2]");
- 
+    By registerForm				= By.xpath("(//form[@class='form-default login-form'])[2]"); 
+    By orderButtonBottom		= By.xpath("(//button[@type='submit'])[2]"); 
+
     //*********Page Methods*********
  
     public LoginPage loginToPiguLt (String username, String password){
@@ -53,6 +53,12 @@ public class LoginPage extends BasePage{
     //Verify Password Condition
     public LoginPage clickRegister () {
     	click(registerButtonBy);
+        return this;
+    }
+    
+    //Click Order button in page bottom.
+    public LoginPage clickOrder () {
+    	click(orderButtonBottom);
         return this;
     }
     

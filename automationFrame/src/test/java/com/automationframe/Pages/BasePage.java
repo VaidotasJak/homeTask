@@ -2,13 +2,15 @@ package com.automationframe.Pages;
 
 import java.util.Random;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.automationframe.Utilities.*;
+
 
 public class BasePage {
 	
@@ -23,13 +25,14 @@ public class BasePage {
 	 
 	    //Wait Wrapper Method
 	    public void waitVisibility(By elementBy) {
-	        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
+	      wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
+	      Utils highlight = new Utils();
+	      highlight.hightRed(elementBy);
 	    }
 	 
 	    //Click Method
 	    public void click (By elementBy) {
 	        waitVisibility(elementBy);
-	        
 	        driver.findElement(elementBy).click();
 	    }
 	 

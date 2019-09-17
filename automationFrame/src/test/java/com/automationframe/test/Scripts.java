@@ -1,14 +1,8 @@
 package com.automationframe.test;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-//import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import com.automationframe.Pages.HomePage;
-import com.automationframe.Pages.LoginPage;
 
 public class Scripts extends BaseTest {
 	
@@ -61,6 +55,19 @@ public class Scripts extends BaseTest {
                 .clickRegister()
         		.findForm()
         		.fillInRegistrationForm("User", "Pass");
+        		
+    }
+    
+    @Test 
+    public void tc05 () {
+        //*************PAGE INSTANTIATIONS*************
+        HomePage homePage = new HomePage(driver);
+ 
+        //*************PAGE METHODS********************
+        homePage.goToPiguLt()
+                .goToLoginPage()
+                .clickOrder();
+        		
         		
     }
 
