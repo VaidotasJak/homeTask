@@ -3,17 +3,19 @@ package com.automationframe.test;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class BaseTest {
 	
 	public static WebDriver driver;
+//	lpublic static String browser;
 
 	@BeforeEach
 	public void setup () {
-		
         //Create a Chrome driver. All test classes use this.
+		
 	   setChromeDriverProperty();
-       driver = new ChromeDriver();
+       
  
         //Maximize Window
         driver.manage().window().maximize();
@@ -32,9 +34,11 @@ public class BaseTest {
 	private static void setChromeDriverProperty() {
 		if(System.getProperty("os.name").contains("Windows")) {
 			System.setProperty("webdriver.chrome.driver", "Driver\\chromedriver.exe");
+			driver = new ChromeDriver();
 		} else {
-			System.setProperty("webdriver.chrome.driver", "Driver\\chromedriver");
-
+			System.setProperty("webdriver.chrome.driver", "Driver\\safaridriver");
+			driver = new SafariDriver();
+			
 		}
 	}
 }

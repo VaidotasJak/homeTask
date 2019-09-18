@@ -55,7 +55,6 @@ public class Scripts extends BaseTest {
                 .clickRegister()
         		.findForm()
         		.fillInRegistrationForm("User", "Pass");
-        		
     }
     
     @Test 

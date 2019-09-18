@@ -18,7 +18,6 @@ public class LoginPage extends BasePage{
     By passwordForm				= By.xpath("(//input[@name='password'])[2]");
     By confirmPasswordFormBy	= By.xpath("(//input[@name='passconf'])[2]");
     By registerButtonForm		= By.name("register");
-    
     By loginButtonBy 			= By.name("login");
     By errorMessageUsernameBy   = By.xpath("//*[@name='email']/following-sibling::div");
     By errorMessagePasswordBy   = By.xpath("//*[@id='passwordCont']/following-sibling::div");
