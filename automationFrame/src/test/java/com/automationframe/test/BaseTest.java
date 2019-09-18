@@ -3,6 +3,7 @@ package com.automationframe.test;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class BaseTest {
@@ -39,6 +40,15 @@ public class BaseTest {
 			System.setProperty("webdriver.chrome.driver", "Driver\\safaridriver");
 			driver = new SafariDriver();
 			
+//			FireFox driver
+//			if(System.getProperty("os.name").contains("Windows")) {
+//				System.setProperty("webdriver.gecko.driver", "Driver\\geckodriver.exe");
+//				driver = new FirefoxDriver();
+			
+//			Edge driver
+//			if(System.getProperty("os.name").contains("Windows")) {
+//				System.setProperty("webdriver.edge.driver", "Driver\\MicrosoftWebDriver.exe");
+//				driver = new EdgeDriver();
 		}
 	}
 }
