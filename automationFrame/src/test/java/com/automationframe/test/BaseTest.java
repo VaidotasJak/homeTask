@@ -1,5 +1,6 @@
 package com.automationframe.test;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -36,10 +37,12 @@ public class BaseTest {
 		if(System.getProperty("os.name").contains("Windows")) {
 			System.setProperty("webdriver.chrome.driver", "Driver\\chromedriver.exe");
 			driver = new ChromeDriver();
-		} else {
-			System.setProperty("webdriver.chrome.driver", "Driver\\safaridriver");
+		} else if (System.getProperty("os.name").contains("Mac")){
+			System.setProperty("webdriver.safari.driver", "Driver\\SafariDriver.safariextz");
 			driver = new SafariDriver();
-			
+		} else {
+			Assertions.fail("This framework only supports Windows or Mac OS");
+		}
 //			FireFox driver
 //			if(System.getProperty("os.name").contains("Windows")) {
 //				System.setProperty("webdriver.gecko.driver", "Driver\\geckodriver.exe");
@@ -51,4 +54,4 @@ public class BaseTest {
 //				driver = new EdgeDriver();
 		}
 	}
-}
+
