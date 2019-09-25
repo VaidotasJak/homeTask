@@ -1,24 +1,26 @@
 package com.automationframe.test;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Properties;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import com.automationframe.Utilities.Browser;
+
 
 public class BaseTest {
 	
 	public static WebDriver driver;
-//	lpublic static String browser;
 
 	@BeforeEach
-	public void setup () {
-        //Create a Chrome driver. All test classes use this.
-		setChromeDriverProperty();
-        //Maximize Window
+	public void setup () throws Exception {
+		setDriverProperty();
         driver.manage().window().maximize();
     }
+	
 	
 //	@AfterEach
 	public  void closeBrowser() 
@@ -30,25 +32,19 @@ public class BaseTest {
 		return driver;
 	}
 	
-	private static void setChromeDriverProperty() {
+	private void setDriverProperty() throws Exception {
 		if(System.getProperty("os.name").contains("Windows")) {
-			System.setProperty("webdriver.chrome.driver", "Driver\\chromedriver.exe");
-			driver = new ChromeDriver();
+			Properties prop=new Properties();
+			InputStream input = null;
+			input = new FileInputStream("config.properties");
+			prop.load(input);
+			Browser browser = new Browser(prop.getProperty("browser"));
+			driver = browser.initBrowser();
 		} else if (System.getProperty("os.name").contains("Mac")){
 			System.setProperty("webdriver.safari.driver", "Driver\\SafariDriver.safariextz");
 			driver = new SafariDriver();
 		} else {
 			Assertions.fail("This framework only supports Windows or Mac OS");
-		}
-//			FireFox driver
-//			if(System.getProperty("os.name").contains("Windows")) {
-//				System.setProperty("webdriver.gecko.driver", "Driver\\geckodriver.exe");
-//				driver = new FirefoxDriver();
-			
-//			Edge driver
-//			if(System.getProperty("os.name").contains("Windows")) {
-//				System.setProperty("webdriver.edge.driver", "Driver\\MicrosoftWebDriver.exe");
-//				driver = new EdgeDriver();
-		}
 	}
-
+}
+}
