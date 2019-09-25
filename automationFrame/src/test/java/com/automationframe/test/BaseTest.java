@@ -46,5 +46,5 @@ public class BaseTest {
 		} else {
 			Assertions.fail("This framework only supports Windows or Mac OS");
 	}
-}
+  }
 }
