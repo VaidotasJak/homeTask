@@ -8,7 +8,7 @@ import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
 import org.junit.platform.launcher.core.LauncherFactory;
 import org.junit.platform.launcher.listeners.SummaryGeneratingListener;
 
-import com.automationframe.test.Scripts;
+import com.automationframe.test.HomePageTest;
 
 public class RunJUnit5TestsFromJava {
 	
@@ -16,7 +16,7 @@ public class RunJUnit5TestsFromJava {
 	 
     public void runOne() {
         LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
-          .selectors(selectClass(Scripts.class)).build();
+          .selectors(selectClass(HomePageTest.class)).build();
         Launcher launcher = LauncherFactory.create();
         TestPlan testPlan = launcher.discover(request);
         launcher.registerTestExecutionListeners(listener);
@@ -34,7 +34,7 @@ public class RunJUnit5TestsFromJava {
 //        launcher.execute(request);
 //    }
     
-		private DiscoverySelector selectClass(Class<Scripts> class1) {
+		private DiscoverySelector selectClass(Class<HomePageTest> class1) {
 		return null;
 	}
 }

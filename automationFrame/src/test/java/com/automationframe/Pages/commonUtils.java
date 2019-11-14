@@ -12,26 +12,26 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.automationframe.Utilities.*;
 
 
-public class BasePage {
+public class commonUtils {
 	
-	    public WebDriver driver;
-	    public WebDriverWait wait;
-	 
+	    public static WebDriver driver;
+	    public static WebDriverWait wait;
+	    
 	    //Constructor
-	    public BasePage (WebDriver driver){
+	    public commonUtils (WebDriver driver){
 	        this.driver = driver;
 	        wait = new WebDriverWait(driver,30);
 	    }
 	 
 	    //Wait Wrapper Method
-	    public void waitVisibility(By elementBy) {
+	    public static void waitVisibility(By elementBy) {
 	      wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
 	      Utils highlight = new Utils();
 	      highlight.hightRed(elementBy);
 	    }
 	 
 	    //Click Method
-	    public void click (By elementBy) {
+	    public static void click (By elementBy) {
 	        waitVisibility(elementBy);
 	        driver.findElement(elementBy).click();
 	    }

@@ -4,26 +4,28 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+
 import com.automationframe.Utilities.Browser;
 
 
 public class BaseTest {
 	
 	public static WebDriver driver;
+    String baseURL = "http://www.pigu.lt/";
 
 	@BeforeEach
 	public void setup () throws Exception {
 		setDriverProperty();
         driver.manage().window().maximize();
+        driver.get(baseURL);
     }
 	
 	
-	@AfterEach
+//	@AfterEach
 	public  void closeBrowser() 
 	{
 		driver.close();

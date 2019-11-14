@@ -3,7 +3,7 @@ package com.automationframe.Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends commonUtils{
 	 
     //*********Constructor*********
     public LoginPage(WebDriver driver) {

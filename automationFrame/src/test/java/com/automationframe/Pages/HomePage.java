@@ -3,7 +3,7 @@ package com.automationframe.Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage extends BasePage {
+public class HomePage extends commonUtils {
 	 
     //*********Constructor*********
     public HomePage (WebDriver driver) {
@@ -16,16 +16,9 @@ public class HomePage extends BasePage {
     //*********Web Elements*********
     By signInButtonBy 		= By.xpath("//a[@href='u/login']");
  
-    //*********Page Methods*********
-    //Go to Homepage
-    public HomePage goToPiguLt (){
-        driver.get(baseURL);
-        return this;
+    public void tc1(){
+    	click(signInButtonBy);
     }
  
-    //Go to LoginPage
-    public LoginPage goToLoginPage (){
-        click(signInButtonBy);
-        return new LoginPage(driver);
-    }
+    
 }
