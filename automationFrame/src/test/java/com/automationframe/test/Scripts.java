@@ -66,8 +66,6 @@ public class Scripts extends BaseTest {
         homePage.goToPiguLt()
                 .goToLoginPage()
                 .clickOrder();
-        		
-        		
     }
 
 

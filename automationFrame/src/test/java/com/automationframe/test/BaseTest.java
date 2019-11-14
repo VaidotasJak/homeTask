@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +23,7 @@ public class BaseTest {
     }
 	
 	
-//	@AfterEach
+	@AfterEach
 	public  void closeBrowser() 
 	{
 		driver.close();
