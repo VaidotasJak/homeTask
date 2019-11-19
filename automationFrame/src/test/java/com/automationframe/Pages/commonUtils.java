@@ -14,14 +14,22 @@ import com.automationframe.Utilities.*;
 
 public class commonUtils {
 	
-	    public static WebDriver driver;
+	    private static WebDriver driver;
 	    public static WebDriverWait wait;
 	    
 	    //Constructor
 	    public commonUtils (WebDriver driver){
-	        this.driver = driver;
+	        commonUtils.setDriver(driver);
 	        wait = new WebDriverWait(driver,30);
 	    }
+	    
+	    public static WebDriver getDriver() {
+			return driver;
+		}
+
+		public static void setDriver(WebDriver driver) {
+			commonUtils.driver = driver;
+		}
 	 
 	    //Wait Wrapper Method
 	    public static void waitVisibility(By elementBy) {
@@ -33,26 +41,26 @@ public class commonUtils {
 	    //Click Method
 	    public static void click (By elementBy) {
 	        waitVisibility(elementBy);
-	        driver.findElement(elementBy).click();
+	        getDriver().findElement(elementBy).click();
 	    }
 	 
 	    //Write Text
 	    public void writeText (By elementBy, String text) {
 	        waitVisibility(elementBy);
-	        driver.findElement(elementBy).sendKeys(text);
+	        getDriver().findElement(elementBy).sendKeys(text);
 	    }
 	 
 	    //Read Text
 	    public String readText (By elementBy) {
 	        waitVisibility(elementBy);
-	        System.out.println(driver.findElement(elementBy).getText());
-	        return driver.findElement(elementBy).getText();
+	        System.out.println(getDriver().findElement(elementBy).getText());
+	        return getDriver().findElement(elementBy).getText();
 	    }
 	    
 	  //Find element
 	    public WebElement find (By elementBy) {
 	        waitVisibility(elementBy);
-	        return driver.findElement(elementBy);
+	        return getDriver().findElement(elementBy);
 	    }
 	 
 	    //Assert
@@ -64,7 +72,7 @@ public class commonUtils {
 	  //Write Text + radom Int
 	    public void writeTextPlusRandomInt (By elementBy, String text) {
 	        waitVisibility(elementBy);
-	        driver.findElement(elementBy).sendKeys(text + getRandomInt(100, 100000));
+	        getDriver().findElement(elementBy).sendKeys(getRandomInt(100, 100000)+text);
 	    }
 	    
 	  //Write Random Int 
@@ -72,4 +80,6 @@ public class commonUtils {
 	    	Random r = new Random();
 			return r.nextInt((max - min) + 1) + min;
 	    }
+
+		
 }

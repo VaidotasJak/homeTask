@@ -65,4 +65,21 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+   				 <artifactId>maven-surefire-plugin</artifactId>
+    			<version>3.0.0-M4</version>
+    			<configuration>
+                <includes>
+                    <include>MyAccountPageTests.java</include>
+                </includes>
+                <maven.test.failure.ignore>true</maven.test.failure.ignore>
+            </configuration>
+			</plugin>
+			
+		</plugins>
+	</build>
 </project>
