@@ -18,17 +18,6 @@ public class MyAccountPageTests extends BaseTest {
         homeWork.tc2();
     }
 	
-	@Test 
-	public void homeWork_tc3 () throws Exception{
-        MyAccountPageScripts homeWork = new MyAccountPageScripts(driver);
-        homeWork.tc3();
-    }
-	
-	@Test 
-	public void homeWork_tc4 () throws Exception{
-        MyAccountPageScripts homeWork = new MyAccountPageScripts(driver);
-        homeWork.tc4();
-    }
  
     
  

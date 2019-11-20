@@ -20,6 +20,7 @@ public class MyAccountPageScripts extends commonUtils {
     By errolLabel	 			= By.className("woocommerce-error");
     By successLabel	 			= By.className("woocommerce-error");
 
+    
     public void tc1() throws Exception {
     	click(myAccountButton);
     	writeTextPlusRandomInt(userNameInputField, "testUser");
@@ -31,8 +32,12 @@ public class MyAccountPageScripts extends commonUtils {
     	writeTextPlusRandomInt(emailInputField, "valid@gmail.com");
     	writeText(passwordInputFiled, "PassPhrase123432");
     	click(registerButton);
+    	/*Could not validate success message as after clicking register button, user is redirected to different page
+    	* and there is no success message.
+    	*/
     }
  
+    //Error scenario
     public void tc2() throws Exception {
     	click(myAccountButton);
     	writeTextPlusRandomInt(userNameInputField, "testUser");
@@ -41,35 +46,7 @@ public class MyAccountPageScripts extends commonUtils {
     	click(registerButton);
     	String errorMsg = readText(errolLabel);
     	Assertions.assertTrue(errorMsg.contains("Success") && errorMsg.contains("Please provide a valid email address."));
-    	writeTextPlusRandomInt(emailInputField, "valid@gmail.com");
-    	writeText(passwordInputFiled, "PassPhrase123432");
-    	click(registerButton);
     }
     
-    public void tc3() throws Exception {
-    	click(myAccountButton);
-    	writeTextPlusRandomInt(userNameInputField, "testUser");
-    	writeText(emailInputField, "invalidEmailasfdasf@df");
-    	writeText(passwordInputFiled, "PassPhrase123432");
-    	click(registerButton);
-    	String errorMsg = readText(errolLabel);
-    	Assertions.assertTrue(errorMsg.contains("Error:") && errorMsg.contains("Please provide a valid email address."));
-    	writeTextPlusRandomInt(emailInputField, "valid@gmail.com");
-    	writeText(passwordInputFiled, "PassPhrase123432");
-    	click(registerButton);
-    }
- 
-    public void tc4() throws Exception {
-    	click(myAccountButton);
-    	writeTextPlusRandomInt(userNameInputField, "testUser");
-    	writeText(emailInputField, "invalidEmailasfdasf@df");
-    	writeText(passwordInputFiled, "PassPhrase123432");
-    	click(registerButton);
-    	String errorMsg = readText(errolLabel);
-    	Assertions.assertTrue(errorMsg.contains("Success") && errorMsg.contains("Please provide a valid email address."));
-    	writeTextPlusRandomInt(emailInputField, "valid@gmail.com");
-    	writeText(passwordInputFiled, "PassPhrase123432");
-    	click(registerButton);
-    }
     
 }
